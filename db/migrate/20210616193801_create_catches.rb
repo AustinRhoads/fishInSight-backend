@@ -1,0 +1,16 @@
+class CreateCatches < ActiveRecord::Migration[6.1]
+  def change
+    create_table :catches do |t|
+      t.references :user, null: false, foreign_key: true
+      t.references :species, null: false, foreign_key: true
+      t.references :spot, null: false, foriegn_key: true
+      t.references :bait, null: false, foriegn_key: true
+      t.integer :size
+      t.string :location
+      t.datetime :date
+      t.text :notes
+
+      t.timestamps
+    end
+  end
+end

@@ -1,0 +1,54 @@
+User
+    -has_many :catches
+    -has_and_belongs_to_many :baits
+    -has_many :spots
+
+    :username:string,
+    :password:string,
+    :email:string,
+    :avatar:blob***
+
+
+catches
+    -belongs_to :user
+    -belongs_to :species
+
+
+    :user_id:integer,
+    :species_id:integer,
+    :size:integer,
+    :location:string,
+    :date:datetime,
+    :notes:string,
+
+
+
+species
+    -has__and_belongs_to_many :catches
+    -has_many :users, through :catches
+    -has_one_attached :image,
+    -has_many :baits
+
+    :scientific_name :string,
+    :description:text
+
+bait
+    -has_and_belongs_to_many :catches
+    -has_and_bleongs_to_many :users
+    -has_one_attached :image
+
+
+    :efficacy_raiting:integer,
+    :known_species_effected:text (json serialized array),
+    :notes:text
+
+spots
+
+
+    name:string,
+
+    latitude:integer
+    longitude:integer
+    location:string
+    waterbody_class:integer
+
