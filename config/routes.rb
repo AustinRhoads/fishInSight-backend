@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+ # get 'sessions/create'
+  resources :sessions, only: [:create]
   namespace :api do
     namespace :v1 do
       resources :spots
