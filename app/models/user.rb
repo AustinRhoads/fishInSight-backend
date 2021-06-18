@@ -5,6 +5,9 @@ class User < ApplicationRecord
     has_many :spots
     has_and_belongs_to_many :baits
 
+    #validates_presence_of :email
+    #validates_uniqueness_of :email
+
     def add_catch(caught)
         
     end

@@ -44,5 +44,9 @@ class Api::V1::UsersController < ApplicationController
         params.require(:user).permkit(:username, :password_digest, :email, :catches)
     end
 
+    #def set_user
+    #    @user = @user || User.find_by(:id => session[:user_id])
+    #end
+
 
 end
