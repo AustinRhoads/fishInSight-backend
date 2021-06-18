@@ -4,4 +4,8 @@ class User < ApplicationRecord
     has_many :species, through: :catches
     has_many :spots
     has_and_belongs_to_many :baits
+
+    def add_catch(caught)
+        
+    end
 end
