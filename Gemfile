@@ -21,7 +21,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
 gem 'omniauth-facebook'
-
+gem 'pry'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
