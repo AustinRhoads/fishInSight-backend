@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_145052) do
+ActiveRecord::Schema.define(version: 2021_06_27_175100) do
 
   create_table "baits", force: :cascade do |t|
     t.string "name"
     t.integer "efficacy_rating"
     t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "baits_users", force: :cascade do |t|
+    t.integer "bait_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,6 +67,13 @@ ActiveRecord::Schema.define(version: 2021_06_21_145052) do
     t.integer "longitude"
     t.string "location"
     t.integer "water_body_class"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spots_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "spot_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

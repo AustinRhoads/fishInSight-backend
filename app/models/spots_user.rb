@@ -1,0 +1,2 @@
+class SpotsUser < ApplicationRecord
+end

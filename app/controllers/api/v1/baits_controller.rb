@@ -10,7 +10,7 @@ class Api::V1::BaitsController < ApplicationController
     def create
         bait = Bait.new(bait_params)
 
-        if bait.save?
+        if bait.save
             render json: bait
         else
             render json: {error: "bait did not save."}
@@ -26,7 +26,7 @@ class Api::V1::BaitsController < ApplicationController
     def update
         bait = Bait.find_by(:id => params[:id])
         bait.update(bait_params)
-        if bait.save?
+        if bait.save
             render json: bait
         else
             render json: {error: "bait did not update"}

@@ -1,0 +1,2 @@
+class BaitsUser < ApplicationRecord
+end

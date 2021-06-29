@@ -8,6 +8,7 @@ class Api::V1::SpeciesController < ApplicationController
     end
 
     def create
+        binding.pry
         species = Species.new(species_params)
 
         if species.save?

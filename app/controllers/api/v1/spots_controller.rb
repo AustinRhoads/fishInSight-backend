@@ -10,7 +10,7 @@ class Api::V1::SpotsController < ApplicationController
     def create
         spot = Spot.new(spot_params)
 
-        if spot.save?
+        if spot.save
             render json: spot
         else
             render json: {error: "spot did not save."}
@@ -26,7 +26,7 @@ class Api::V1::SpotsController < ApplicationController
     def update
         spot = Spot.find_by(:id => params[:id])
         spot.update(spot_params)
-        if spot.save?
+        if spot.save
             render json: spot
         else
             render json: {error: "spot did not update"}

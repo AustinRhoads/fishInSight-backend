@@ -8,9 +8,10 @@ class Api::V1::CatchesController < ApplicationController
     end
 
     def create
-        caught = Catch.new(caught_params)
-
-        if caught.save?
+        
+        caught = Catch.new(catch_params)
+      
+        if caught.save
             render json: caught
         else
             render json: {error: "catch did not save."}
@@ -26,7 +27,7 @@ class Api::V1::CatchesController < ApplicationController
     def update
         caught = Catch.find_by(:id => params[:id])
         caught.update(caught_params)
-        if caught.save?
+        if caught.save
             render json: caught
         else
             render json: {error: "catch did not update"}
