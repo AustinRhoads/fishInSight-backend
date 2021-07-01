@@ -6,7 +6,9 @@ class CreateCatches < ActiveRecord::Migration[6.1]
       t.references :spot, null: false, foriegn_key: true
       t.references :bait, null: false, foriegn_key: true
       t.integer :size
-      t.string :location
+      t.string :address
+      t.decimal :lat
+      t.decimal :lng
       t.datetime :date
       t.text :notes
 

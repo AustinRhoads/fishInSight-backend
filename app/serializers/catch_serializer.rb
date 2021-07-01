@@ -1,5 +1,5 @@
 class CatchSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :species_id, :spot_id, :bait_id, :size, :location, :date, :notes, :species, :bait
+  attributes :id, :user_id, :species_id, :spot_id, :bait_id, :size, :address, :lat, :lng, :date, :notes, :species, :bait
 
   belongs_to :user 
   belongs_to :bait 

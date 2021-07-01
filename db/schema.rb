@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 2021_06_27_175100) do
     t.integer "spot_id", null: false
     t.integer "bait_id", null: false
     t.integer "size"
-    t.string "location"
+    t.string "address"
+    t.decimal "lat"
+    t.decimal "lng"
     t.datetime "date"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
@@ -63,9 +65,13 @@ ActiveRecord::Schema.define(version: 2021_06_27_175100) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.integer "latitude"
-    t.integer "longitude"
-    t.string "location"
+    t.decimal "lat"
+    t.decimal "lng"
+    t.string "address"
+    t.string "state"
+    t.string "city"
+    t.string "street_address"
+    t.integer "zip_code"
     t.integer "water_body_class"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
