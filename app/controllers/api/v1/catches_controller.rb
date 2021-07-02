@@ -1,5 +1,7 @@
 class Api::V1::CatchesController < ApplicationController
-
+    before_action do
+        ActiveStorage::Current.host = request.base_url
+     end
     
     def index
         caughts = Catch.all
@@ -43,6 +45,7 @@ class Api::V1::CatchesController < ApplicationController
 
     def catch_params
         params.require(:catch).permit(:id, :size, :location, :date, :notes, :bait_id, :user_id, :spot_id, :species_id, :image)
+        #params.permit(:id, :size, :location, :date, :notes, :bait_id, :user_id, :spot_id, :species_id, :image)
     end
 
 

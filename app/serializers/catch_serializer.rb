@@ -1,5 +1,8 @@
 class CatchSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
+default_url_options[:host] = 'localhost:3000'
+
+
   attributes :id, :user_id, :species_id, :spot_id, :bait_id, :size, :address, :lat, :lng, :date, :notes, :species, :bait, :image
 
  
