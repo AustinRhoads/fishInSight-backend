@@ -1,18 +1,25 @@
 class SessionsController < ApplicationController
 
+
 include CurrentUserConcern
+
+#def catches_serializer
+#  CatchSerializer
+#end
 
   def create
     user = User.find_by(:email => params["user"]["email"]).try(:authenticate, params["user"]["password"])
-
+    catches = Catch.all
+    
   #  binding.pry
     if user
       session[:user_id] = user.id
       render json: {
         status: :created,
         logged_in: true,
-        user: user
-      }
+        user: user,
+       catches: catches,
+    }
     else
       render json: {status: 401}
     end
@@ -21,10 +28,13 @@ include CurrentUserConcern
 
   def logged_in
     if @current_user
+      catches = Catch.all
       render json: {
         logged_in: true,
-        user: @current_user
+        user: @current_user,
+        catches: catches,
       }
+
     else
       render json: {logged_in: false}
     end
