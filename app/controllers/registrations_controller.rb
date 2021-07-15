@@ -14,7 +14,7 @@ class RegistrationsController < ApplicationController
         user: user
       }
     else
-      render json: {status: 500}
+      render json: {status: 500, error: "The registration information you enter is invalid. Please check your information and try again."}
     end
 
   end

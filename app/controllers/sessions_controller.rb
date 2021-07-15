@@ -9,19 +9,23 @@ include CurrentUserConcern
 
   def create
     user = User.find_by(:email => params["user"]["email"]).try(:authenticate, params["user"]["password"])
+    user_found = User.find_by(:email => params["user"]["email"])
     catches = Catch.all
     
-  #  binding.pry
+ 
     if user
       session[:user_id] = user.id
       render json: {
         status: :created,
         logged_in: true,
         user: user,
+        
        catches: catches,
     }
-    else
-      render json: {status: 401}
+    elsif user_found
+      render json: {status: 401, error: "The password you entered was incorrect. Please double-check and try again."}
+    else 
+      render json: {status: 401, error: "The login information you entered was incorrect. Please double-check and try again."}
     end
   end
 
@@ -32,6 +36,7 @@ include CurrentUserConcern
       render json: {
         logged_in: true,
         user: @current_user,
+        userCatches: @current_user.catches,
         catches: catches,
       }
 

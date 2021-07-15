@@ -4,4 +4,8 @@ class UserSerializer < ActiveModel::Serializer
   has_many :species, through: :catches
   has_many :spots
   has_many :baits
+
+  def species
+    object.species.uniq
+  end
 end

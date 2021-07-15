@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :registrations, only: [:create]
   delete :logout, to: 'sessions#logout'
 
+  get '/auth/gogle_oauth2/callback' => 'sessions#create'
 
   #get :logged_in, to: 'sessions#logged_in'
   get :logged_in, to: 'sessions#logged_in'
