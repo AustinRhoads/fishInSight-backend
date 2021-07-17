@@ -7,9 +7,9 @@ default_url_options[:host] = 'localhost:3000'
 
  
   belongs_to :user 
-  belongs_to :bait 
-  belongs_to :spot 
-  belongs_to :species
+  belongs_to :bait, optional: true  
+  belongs_to :spot, optional: true 
+  belongs_to :species, optional: true
 
   def species
     object.species

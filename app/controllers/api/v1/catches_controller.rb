@@ -12,13 +12,8 @@ class Api::V1::CatchesController < ApplicationController
     def create
         
         caught = Catch.new(catch_params)
-        #binding.pry
-        dateArray = catch_params[:date].split(" ")
-        month = Date::ABBR_MONTHNAMES.index(dateArray[1])
-        timeArray = dateArray[4].split(":")
-        datetime = DateTime.new(dateArray[3].to_i, month, dateArray[2].to_i, timeArray[0].to_i, timeArray[1].to_i)
-        caught.date = datetime
-       # binding.pry
+
+       
         if caught.save
             render json: caught
         else
@@ -51,7 +46,7 @@ class Api::V1::CatchesController < ApplicationController
 
     def catch_params
         #params.require(:catch).permit(:id, :size, :location, :date, :notes, :bait_id, :user_id, :spot_id, :species_id, :image)
-        params.permit(:id, :size, :location, :date, :notes, :bait_id, :user_id, :spot_id, :species_id, :image)
+        params.permit(:id, :size, :location, :date, :time, :notes, :bait_id, :user_id, :spot_id, :species_id, :image, :lat, :lng, :size)
     end
 
 

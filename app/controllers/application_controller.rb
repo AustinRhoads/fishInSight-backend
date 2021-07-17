@@ -15,10 +15,11 @@ class ApplicationController < ActionController::API
     private 
 		
     def set_csrf_cookie
-       # binding.pry
+      #  binding.pry
        cookies["CSRF-TOKEN"] = {
             value: form_authenticity_token,
             domain: :all 
         }
+        
     end
 end

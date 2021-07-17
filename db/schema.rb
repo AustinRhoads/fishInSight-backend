@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 2021_07_02_172938) do
 
   create_table "catches", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "species_id", null: false
-    t.integer "spot_id", null: false
-    t.integer "bait_id", null: false
+    t.integer "species_id"
+    t.integer "spot_id"
+    t.integer "bait_id"
     t.integer "size"
     t.string "address"
     t.decimal "lat"
