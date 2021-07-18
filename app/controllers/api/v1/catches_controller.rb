@@ -13,7 +13,7 @@ class Api::V1::CatchesController < ApplicationController
         
         caught = Catch.new(catch_params)
 
-       
+      
         if caught.save
             render json: caught
         else
@@ -23,13 +23,15 @@ class Api::V1::CatchesController < ApplicationController
 
     def show
         caught = Catch.find_by(:id => params[:id])
-
+       
         render json: caught
     end
 
     def update
+       
         caught = Catch.find_by(:id => params[:id])
-        caught.update(caught_params)
+        caught.update(catch_params)
+       
         if caught.save
             render json: caught
         else
