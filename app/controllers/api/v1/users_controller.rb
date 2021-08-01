@@ -1,5 +1,10 @@
 class Api::V1::UsersController < ApplicationController
 
+    before_action do
+        ActiveStorage::Current.host = request.base_url
+     end
+
+
     def index
         users = User.all
 
@@ -24,11 +29,12 @@ class Api::V1::UsersController < ApplicationController
     def update
         user = User.find_by(:id => params[:id])
         user.update(user_params)
+      #  binding.pry
 
-        if user.save?
+        if user.save
             render json: user
         else
-            render json: {error: "mmm didnt save sir."}
+            render json: {error: "mmm didnt save."}
         end
 
     end
@@ -40,13 +46,9 @@ class Api::V1::UsersController < ApplicationController
 
     private
 
-    def user_params
-        params.require(:user).permkit(:username, :password_digest, :email, :catches)
+    def user_params   
+        params.permit(:username, :password_digest, :email, :catches, :image)
     end
-
-    #def set_user
-    #    @user = @user || User.find_by(:id => session[:user_id])
-    #end
 
 
 end

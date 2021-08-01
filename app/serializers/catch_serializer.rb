@@ -3,7 +3,7 @@ class CatchSerializer < ActiveModel::Serializer
 default_url_options[:host] = 'localhost:3000'
 
 
-  attributes :id, :user_id, :species_id, :spot_id, :bait_id, :size, :address, :lat, :lng, :date, :notes, :species, :bait, :image
+  attributes :id, :user_id, :species_id, :spot_id, :bait_id, :size, :address, :lat, :lng, :date, :notes, :species, :bait, :image, :created_at
 
  
   belongs_to :user 

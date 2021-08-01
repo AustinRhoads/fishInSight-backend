@@ -23,6 +23,9 @@ gem 'activerecord-session_store'
 gem 'omniauth-facebook'
 gem 'pry'
 gem 'active_model_serializers'
+
+gem 'open-uri'
+gem 'nokogiri'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  #get 'registrations/create'
- # get 'sessions/create'
+
  root to: "application#cookie"
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]
   delete :logout, to: 'sessions#logout'
 
   
- # get '/auth/google_oauth2/callback' => 'sessions#create'
 
-  #get :logged_in, to: 'sessions#logged_in'
   get :logged_in, to: 'sessions#logged_in'
 
 
