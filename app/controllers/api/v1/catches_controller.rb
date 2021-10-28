@@ -49,6 +49,7 @@ class Api::V1::CatchesController < ApplicationController
     def catch_params
         #params.require(:catch).permit(:id, :size, :location, :date, :notes, :bait_id, :user_id, :spot_id, :species_id, :image)
         params.permit(:id, :size, :location, :date, :time, :notes, :bait_id, :user_id, :spot_id, :species_id, :image, :lat, :lng, :size)
+        #params.permit(:id, :size, :date, :time, :notes, :bait_id, :user_id, :spot_id, :species_id, :image, :lat, :lng, :size)
     end
 
 
